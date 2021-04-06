@@ -17,3 +17,15 @@ For help on the usage:
 ```
 python find_repeated_annotaion.py --help 
 ```
+
+## 2. Rotate_genome.py
+Set the starting position of your genome at the desired point. E.g.Set dnaA as the starting gene in the genome
+
+For help on the usage:
+
+```
+python Rotate_genome.py
+
+```
+
+contact menolin.shrma@gmail.com for any questions 
