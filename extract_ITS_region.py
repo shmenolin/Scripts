@@ -27,18 +27,30 @@ def main():
     rRNAs=pd.read_csv('rRNAs.gff', sep = '\t', names= ['seq_id', 'source', 'type', 'start', 'stop','a', 'b', 'c', 'description'])
     os.system('rm ITS_sequences.fasta')
     out_handle = open('ITS_sequences.fasta', 'w+')
-    stop=0
+    _16S_start=_23S_start = 0
     my_wrap = textwrap.TextWrapper(width = 80)
     for index, row in rRNAs.iterrows():
         descrip = row['description']
+        seq_id = row['seq_id']
         if re.search(r'16S ribosomal',descrip):
-            start = row['stop'] -1
+            _16S_start = row['start'] -1
+            _16S_stop=row['stop'] -1
             seq_id = row['seq_id']
         elif re.search(r'23S ribosomal',descrip):
-            stop = row['start'] -1
+            _23S_start = row['start'] -1
+            _23S_stop = row['stop'] -1
+        if _16S_start and _23S_start:
+            if _23S_start > _16S_start:
+                start = _16S_stop-1
+                stop = _23S_start-1
+            elif _23S_start < _16S_start:
+                start = _23S_stop-1
+                stop = _16S_start-1
+
             text_1 = str(fasta_dict[seq_id].seq[start:stop])
             its_sequence = my_wrap.fill(text = text_1)
             out_handle.write(">%s_its_sequence\n%s\n" % (seq_id,its_sequence))
+            _16S_start=_23S_start = 0
     out_handle.close()
 
 if __name__ == "__main__":
