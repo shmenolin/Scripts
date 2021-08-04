@@ -34,7 +34,9 @@ python Rotate_genome.py --help
 ```
 ## 3. extract_ITS_region.py
 Extract ITS sequences from a fasta file, using information in gff file. Internal Transcribed Region is region between 16S and 23S ribosomal RNA sequences which are used for phylogenetic anlysis of organisms. This can be used to extract ITS sequences from genomes from GenBank and gff files for instance.
-Output will be stored as ITS_sequences.fasta in your working folder. Works in unix/linux environment\nUsage:  
+Output will be stored as ITS_sequences.fasta in your working folder. Works in unix/linux environment
+
+Usage:  
 ```
 python extract_ITS_region.py <fasta_filename> <gff_filename>
 ```
