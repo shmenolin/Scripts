@@ -46,7 +46,7 @@ For help on the usage:
 python extract_ITS_region.py --help|-h
 ```
 
-## 3. extract_selected_IDs.py
+## 4. extract_selected_IDs.py
 Extract sequences from a fasta file for desired IDs in gff file. just provide the comma separated list of IDs e.g.: "cds-WP_011082914.1,cds-WP_011082919.1,cds-WP_011082920.1"
 Output will be stored as extracted_sequences.fasta in your working folder.
 
